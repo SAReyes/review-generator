@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: .
+    links:
+      -  "rabbit"
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "5672:5672"
+      - "25672:25672"
+      - "8080:15672"
